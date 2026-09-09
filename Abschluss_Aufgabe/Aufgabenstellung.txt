@@ -2,12 +2,12 @@
   ABSCHLUSS: Ein Werkzeug, das jemand benutzen kann
 ════════════════════════════════════════════════════════════════
 
-  Schreibe in Aufgabe.sh ein Skript, das eine Logdatei auswertet.
+  Schreibe in uebung.sh ein Skript, das eine Logdatei auswertet.
   Es soll alles zusammenbringen, was in den fünf Leveln vorkam.
 
   Aufruf:
 
-      ./Aufgabe.sh <logdatei>
+      ./uebung.sh <logdatei>
 
   Verhalten:
 
@@ -36,6 +36,6 @@
 
   Zum Ausprobieren liegt die Datei aus Level 4 bereit:
 
-      ./Aufgabe.sh ../Level_4_Textwerkzeuge/daten/zugriffe.log
+      ./uebung.sh ../Level_4_Textwerkzeuge/daten/zugriffe.log
 
   Prüfen mit:  ../pruefen.sh

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Musterlösung zu Level 4.
-cd "$(dirname "$0")"
+# Die Daten liegen beim Level, diese Datei in Loesungen/.
+cd "$(dirname "$0")/../Level_4_Textwerkzeuge"
 
 grep -c " 404 " daten/zugriffe.log
 

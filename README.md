@@ -7,15 +7,19 @@ ob deine Lösung stimmt.
 
 Jedes Level hat vier Dateien:
 
-| Datei          | Zweck                                             |
-| -------------- | ------------------------------------------------- |
-| `Theorie.txt`  | Konzepte lesen und verstehen                      |
-| `Beispiel.sh`  | Lauffähige Beispiele anschauen und ausführen      |
-| `Aufgabe.sh`   | Selbst lösen, Lücken mit `___` ausfüllen          |
-| `Loesung.sh`   | Musterlösung, erst nach dem eigenen Versuch       |
+| Datei                   | Zweck                                        |
+| ----------------------- | -------------------------------------------- |
+| `Theorie.txt`           | Konzepte lesen und verstehen                 |
+| `Beispiel.sh`           | Lauffähige Beispiele anschauen und ausführen |
+| `Aufgabenstellung.txt`  | was zu tun ist, in Worten                    |
+| `uebung.sh`             | deine Lösung -- eine leere Datei zum Anfangen |
 
 Dazu je Level ein `pruefung.sh`. Das ist der Unterschied zu einem Buch:
 du bekommst nach jeder Aufgabe eine Antwort, ohne jemanden fragen zu müssen.
+
+Die Musterlösungen liegen **nicht** neben der Aufgabe, sondern gesammelt
+in [`Loesungen/`](Loesungen/). Wer sie sehen will, muss hingehen -- das ist
+Absicht: mit der Lösung im selben Ordner schaut man hin, bevor man denkt.
 
 ## Los geht es
 
@@ -27,7 +31,8 @@ du bekommst nach jeder Aufgabe eine Antwort, ohne jemanden fragen zu müssen.
 ```
 
 Ohne Menü genügt auch: Ordner öffnen, `Theorie.txt` lesen, `Beispiel.sh`
-ausführen, `Aufgabe.sh` bearbeiten, `../pruefen.sh <nummer>` aufrufen.
+ausführen, `Aufgabenstellung.txt` lesen, `uebung.sh` schreiben,
+`../pruefen.sh <nummer>` aufrufen.
 
 ## Level
 
@@ -46,8 +51,9 @@ Bash 4 oder neuer und die üblichen Werkzeuge (grep, sed, awk, sort, uniq,
 find, mktemp). Auf einem Linux oder macOS ist alles da. Unter Windows über
 WSL oder Git Bash.
 
-## Warum kein `___` in der Lösung stehen bleiben darf
+## Warum du mit einer leeren Datei anfängst
 
-Der Prüfer sagt es dir, wenn noch Lücken offen sind. Er prüft trotzdem --
-oft läuft ein halb gelöstes Skript, gibt aber das Falsche aus, und genau
-das ist der Moment, in dem man etwas lernt.
+Ein Lückentext prüft, ob du das fehlende Wort errätst. Eine leere Datei
+prüft, ob du das Skript schreiben kannst -- und das ist die Fähigkeit,
+um die es geht. Der Prüfer sagt dir nach jedem Versuch, was erwartet war
+und was herauskam; mehr Hilfe braucht es nicht.

@@ -8,7 +8,7 @@
 #
 #    ./pruefen.sh          alle Level
 #    ./pruefen.sh 3        nur Level 3
-#    ./pruefen.sh --loesung  prüft die Musterlösungen (sollte alles
+#    ./pruefen.sh --loesung  prüft die Musterlösungen aus Loesungen/
 #                            grün sein; zeigt, dass der Prüfer stimmt)
 # ================================================================
 set -uo pipefail
@@ -35,8 +35,8 @@ pruefe() {
 export -f pruefe 2>/dev/null || true
 
 welche="${1:-alle}"
-datei_name="Aufgabe.sh"
-[ "$welche" = "--loesung" ] && { datei_name="Loesung.sh"; welche="alle"; }
+modus="uebung"
+[ "$welche" = "--loesung" ] && { modus="loesung"; welche="alle"; }
 
 for ordner in Level_*/ Abschluss_Aufgabe/; do
   [ -f "$ordner/pruefung.sh" ] || continue
@@ -44,14 +44,19 @@ for ordner in Level_*/ Abschluss_Aufgabe/; do
   [ "$welche" != "alle" ] && [ "$welche" != "$nummer" ] && continue
 
   printf '\n%s%s%s\n' "$FETT" "${ordner%/}" "$AUS"
-  ziel="$ordner$datei_name"
+  # Die eigene Lösung liegt im Level, die Musterlösung in Loesungen/.
+  if [ "$modus" = loesung ]; then
+    ziel="Loesungen/${ordner%/}.sh"
+  else
+    ziel="${ordner}uebung.sh"
+  fi
   if [ ! -f "$ziel" ]; then
     printf '  %s✗%s %s fehlt\n' "$ROT" "$AUS" "$ziel"
     gesamt=$((gesamt + 1))
     continue
   fi
-  if grep -q '___' "$ziel"; then
-    printf '  %s·%s In %s stehen noch Lücken (___).\n' "$GRAU" "$AUS" "$ziel"
+  if [ "$modus" = uebung ] && [ "$(grep -vc '^\s*\(#.*\)\?$' "$ziel")" -eq 0 ]; then
+    printf '  %s·%s %s ist noch leer.\n' "$GRAU" "$AUS" "$ziel"
   fi
   # Das Prüfskript läuft in dieser Shell, damit es pruefe und die
   # Zähler sieht.

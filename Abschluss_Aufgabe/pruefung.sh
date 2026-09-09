@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -u
 skript="$1"
-log="$(dirname "$1")/../Level_4_Textwerkzeuge/daten/zugriffe.log"
+log="Level_4_Textwerkzeuge/daten/zugriffe.log"
 
 # 1. ohne Argument
 ohne_stderr="$(bash "$skript" 2>&1 >/dev/null)"; ohne_code=$?

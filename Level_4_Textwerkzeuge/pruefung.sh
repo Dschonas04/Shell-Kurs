@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -u
-ordner="$(dirname "$1")"
 ausgabe="$(bash "$1" 2>/dev/null)"
-log="$ordner/daten/zugriffe.log"
+log="Level_4_Textwerkzeuge/daten/zugriffe.log"
 
 pruefe "4.1 Anzahl der 404" "$(sed -n 1p <<<"$ausgabe")" "$(grep -c ' 404 ' "$log")"
 pruefe "4.2 Adressen einmalig, sortiert" \
